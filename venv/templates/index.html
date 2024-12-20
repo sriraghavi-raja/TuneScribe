@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TuneScribe</title>
+    <style>
+        /* Body styling */
+      /* Body styling with moving background */
+body {
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background: linear-gradient(45deg, #2c0c43, #000000, #441e47, #4e125d);
+    background-size: 400% 400%;
+    animation: gradient 4s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+        /* Header styling */
+        header {
+           display: flex;
+            justify-content: space-between;
+            align-items: center;
+            /* padding: 20px; */
+            color: #fff;
+            text-align: left;
+            position: relative;
+            animation: slide-down 1s ease-out;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes slide-down {
+            from {
+                top: -100px;
+                opacity: 0;
+            }
+            to {
+                top: 0;
+                opacity: 1;
+            }
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            letter-spacing: 2px;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        /* Form styling */
+        form {
+    display: flex;
+    flex-direction: column;
+    margin: 5px auto;
+    padding: 40px;  
+    background: #2c003e; /* Dark Violet */
+    border-radius: 25px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    width: 80%;
+    max-width: 600px;
+    animation: fade-in 1s ease-out;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-top: -100px; /* Move the form box further up */
+}
+
+
+
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Flexbox container for form elements */
+        .form-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-size: 1.2rem;
+            flex: 1;
+            margin-right: 10px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        .form-group input,
+        .form-group select {
+            flex: 2;
+            padding: 12px;
+            border: 2px solid #6a0dad;
+            border-radius: 6px;
+            background: #2c003e;
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: #4B0082;
+            box-shadow: 0 0 5px #6a0dad;
+        }
+
+        /* Submit Button Styling */
+        .submit-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        input[type="submit"] {
+            background-color: #6a0dad;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #4B0082;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        input[type="submit"]:hover {
+            background-color: #4B0082;
+        }
+
+        /* Checkbox & Labels Styling */
+        .checkbox-group {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .checkbox-group div {
+            display: flex;
+            align-items: center;
+        }
+
+        .checkbox-group label {
+            font-size: 1.2rem;
+            color: #ddd;
+            margin-right: 10px;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            margin-left: 10px;
+        }
+
+        /* Result Section Styling */
+        .result {
+            margin-top: 30px;
+            padding: 30px;
+            background: #2c003e;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+            width: 80%;
+            max-width: 600px;
+            margin: 30px auto;
+            animation: slide-up 1s ease-out;
+        }
+
+        @keyframes slide-up {
+            from {
+                bottom: -100px;
+                opacity: 0;
+            }
+            to {
+                bottom: 0;
+                opacity: 1;
+            }
+        }
+
+        .result h2 {
+            font-size: 2rem;
+            color: #fff;
+        }
+
+        .result p {
+            font-size: 1.2rem;
+            color: #f1f1f1;
+            line-height: 1.5;
+        }
+
+        /* Links for download styling */
+        a {
+            text-decoration: none;
+            color: #6a0dad;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #4B0082;
+        }
+
+        /* Responsive design for smaller screens */
+        /* @media (max-width: 600px) {
+            form {
+                width: 90%;
+            } */
+
+            header h1 {
+                font-size: 2.5rem;
+            }
+            .logo {
+                margin-top: 20px;
+             margin-right: 70px;
+    justify-content: right;
+    border-radius: 55%; /* Makes the image round */
+    width: 350px; /* Adjust size as needed */
+    height: 350px; /* Adjust size as needed */
+    object-fit: cover; /* Ensures the image fills the circle without distortion */
+            }
+
+
+        
+    </style>
+</head>
+<body>
+<header>
+    <h1 style="margin-left:50px ;font-family:monospace;font-size: 60px;">TuneScribe</h1>
+    <img class="logo" src="composer-concept-illustration_114360-2844.avif" width="300px" height="auto" alt="img">
+
+</header>
+
+<form method="post" action="/generate">
+    <div class="form-group">
+        <label   for="festival">Festival:</label>
+        <select  id="festival" name="festival" required>
+            <option value="">Select a Festival</option> <!-- Default option -->
+            <option value="Diwali">Diwali</option>
+            <option value="Pongal">Pongal</option>
+            <option value="Thanksgiving">Thanksgiving</option>
+            <option value="Easter">Easter</option>
+            <option value="Ramzan">Ramzan</option>
+            <option value="Christmas">Christmas</option>
+            <option value="Halloween">Halloween</option>
+            <option value="New Year">New Year</option>
+            <option value="Hanukkah">Hanukkah</option>
+            <option value="Valentine's Day">Valentine's Day</option>
+            <option value="Holi">Holi</option>
+            <option value="Navratri">Navratri</option>
+            <option value="Ganesh Chaturthi">Ganesh Chaturthi</option>
+            <option value="Onam">Onam</option>
+        </select>
+    </div>
+    
+    
+
+    <div class="form-group">
+        <label for="seed_text">Seed Text:</label>
+        <input type="text" id="seed_text" name="seed_text" required>
+    </div>
+
+    <div class="form-group">
+        <label for="next_words">Number of Words:</label>
+        <input type="number" id="next_words" name="next_words" min="1" max="50" required>
+    </div>
+
+    <div class="form-group">
+        <label for="melody_style">Melody Style:</label>
+        <select id="melody_style" name="melody_style">
+            <option value="default">Default</option>
+            <option value="rhythmic">Rhythmic</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="language">Language:</label>
+        <select id="language" name="language">
+            <option value="en">English</option>
+            <option value="es">Spanish</option>
+            <option value="fr">French</option>
+        </select>
+    </div>
+    
+    <div class="checkbox-group">
+        <div>
+            <label for="play_voice">Play Voice:</label>
+            <input type="checkbox" id="play_voice" name="play_voice">
+        </div>
+        <div>
+            <label for="download">Download Lyrics:</label>
+            <input type="checkbox" id="download" name="download">
+        </div>
+    </div>
+
+    <div class="submit-button">
+        <input type="submit" value="Generate">
+    </div>
+</form>
+{% if generated_text %}
+<div class="result">
+    <h2>Generated Song Lyrics:</h2>
+    <p>{{ generated_text }}</p>
+    <!-- Provide an option to download the lyrics after they have been displayed -->
+    {% if lyrics_file_path %}
+    <a href="{{ lyrics_file_path }}" download="generated_lyrics.txt">Download Lyrics</a>
+    {% endif %}
+</div>
+{% endif %}
+</body>
+</html>
