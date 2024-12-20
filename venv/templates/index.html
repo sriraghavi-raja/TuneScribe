@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TuneScribe</title>
     <style>
-        /* Body styling */
-      /* Body styling with moving background */
+       
 body {
     font-family: 'Arial', sans-serif;
     color: #fff;
@@ -30,12 +29,11 @@ body {
     }
 }
 
-        /* Header styling */
+        
         header {
            display: flex;
             justify-content: space-between;
             align-items: center;
-            /* padding: 20px; */
             color: #fff;
             text-align: left;
             position: relative;
@@ -60,20 +58,20 @@ body {
             font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
         }
 
-        /* Form styling */
+       
         form {
     display: flex;
     flex-direction: column;
     margin: 5px auto;
     padding: 40px;  
-    background: #2c003e; /* Dark Violet */
+    background: #2c003e; 
     border-radius: 25px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
     width: 80%;
     max-width: 600px;
     animation: fade-in 1s ease-out;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    margin-top: -100px; /* Move the form box further up */
+    margin-top: -100px;
 }
 
 
@@ -87,7 +85,7 @@ body {
             }
         }
 
-        /* Flexbox container for form elements */
+        
         .form-group {
             display: flex;
             align-items: center;
@@ -120,7 +118,7 @@ body {
             box-shadow: 0 0 5px #6a0dad;
         }
 
-        /* Submit Button Styling */
+        
         .submit-button {
             display: flex;
             justify-content: center;
@@ -147,7 +145,6 @@ body {
             background-color: #4B0082;
         }
 
-        /* Checkbox & Labels Styling */
         .checkbox-group {
             display: flex;
             justify-content: space-between;
@@ -169,7 +166,7 @@ body {
             margin-left: 10px;
         }
 
-        /* Result Section Styling */
+       
         .result {
             margin-top: 30px;
             padding: 30px;
@@ -204,7 +201,7 @@ body {
             line-height: 1.5;
         }
 
-        /* Links for download styling */
+       
         a {
             text-decoration: none;
             color: #6a0dad;
@@ -216,11 +213,7 @@ body {
             color: #4B0082;
         }
 
-        /* Responsive design for smaller screens */
-        /* @media (max-width: 600px) {
-            form {
-                width: 90%;
-            } */
+       
 
             header h1 {
                 font-size: 2.5rem;
@@ -229,10 +222,10 @@ body {
                 margin-top: 20px;
              margin-right: 70px;
     justify-content: right;
-    border-radius: 55%; /* Makes the image round */
-    width: 350px; /* Adjust size as needed */
-    height: 350px; /* Adjust size as needed */
-    object-fit: cover; /* Ensures the image fills the circle without distortion */
+    border-radius: 55%; 
+    width: 350px;
+    height: 350px; 
+    object-fit: cover; 
             }
 
 
@@ -250,7 +243,7 @@ body {
     <div class="form-group">
         <label   for="festival">Festival:</label>
         <select  id="festival" name="festival" required>
-            <option value="">Select a Festival</option> <!-- Default option -->
+            <option value="">Select a Festival</option> 
             <option value="Diwali">Diwali</option>
             <option value="Pongal">Pongal</option>
             <option value="Thanksgiving">Thanksgiving</option>
@@ -316,7 +309,6 @@ body {
 <div class="result">
     <h2>Generated Song Lyrics:</h2>
     <p>{{ generated_text }}</p>
-    <!-- Provide an option to download the lyrics after they have been displayed -->
     {% if lyrics_file_path %}
     <a href="{{ lyrics_file_path }}" download="generated_lyrics.txt">Download Lyrics</a>
     {% endif %}

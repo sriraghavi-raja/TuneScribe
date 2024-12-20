@@ -8,7 +8,7 @@ from googletrans import Translator
 import pyttsx3
 
 
-# Example dataset for different festivals with sections
+
 holiday_songs = {
     'Diwali': [
         "main: Diya jale, jingle bells, lights all around",
@@ -81,10 +81,10 @@ holiday_songs = {
         "ending: Onam joy, pure and bright",
     ],
    
-    # Add other festivals here...
+  
 }
 
-# Prepare data for the model
+
 def prepare_data(songs):
     combined_songs = []
     for festival, lyrics in songs.items():
@@ -120,7 +120,7 @@ model.add(Dense(vocab_size, activation='softmax'))
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 model.fit(predictors, label, epochs=100, verbose=1)
 
-# Function to generate lyrics
+
 def generate_lyrics(festival, seed_text, next_words, max_seq_len, model, tokenizer):
     if festival not in holiday_songs:
         return "Festival not recognized. Please enter a valid festival."
@@ -135,13 +135,13 @@ def generate_lyrics(festival, seed_text, next_words, max_seq_len, model, tokeniz
 
     return generated_text
 
-# Function to translate text
+
 def translate_text(text, target_language):
     translator = Translator()
     translation = translator.translate(text, dest=target_language)
     return translation.text
 
-# Function for Text-to-Speech
+
 def text_to_speech(text, language="en"):
     engine = pyttsx3.init()
     engine.setProperty("rate", 150)
